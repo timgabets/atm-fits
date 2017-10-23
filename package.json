@@ -1,5 +1,5 @@
 {
-  "name": "atm-states",
+  "name": "atm-fits",
   "version": "0.1.0",
   "description": "ATM FITs Service",
   "main": "fits.js",
