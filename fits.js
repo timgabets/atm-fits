@@ -172,7 +172,14 @@ function FITsService(settings, log, trace){
 
 
   /**
-   * [matchCardnumberWithMask match card number with a wildcard hexadecimal mask]
+   * [matchCardnumberWithMask match card number with a wildcard hexadecimal mask
+   * 
+   * The terminal checks whether the Financial Institution Identification number found using
+   * PIDDX matches this field. If it does, it uses this FIT. If it does not, it
+   * checks the next FIT. The range of each digit in this field is 0‐9 or F
+   * hex. If F hex is used, the corresponding position of the identification
+   * number on the card is not compared.]
+   * 
    * @param  {[type]} cardnumber [16-character card number]
    * @param  {[type]} mask       [10-character BIN mask, e.g. 418825FFFF]
    * @return {[type]}            [true if there is a match, false otherwise]

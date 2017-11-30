@@ -102,6 +102,10 @@ describe("FITs", function() {
   });
 
   describe("matchCardnumberWithMask()", function(){
+    it("should not match cardnumber 4174070000000104 with 457527FFFF mask", function() {
+      expect(f.matchCardnumberWithMask('4174070000000104', '457527FFFF')).toBeFalsy();
+    });
+
     it("should match cardnumber with FFFFFFFFFF mask", function() {
       expect(f.matchCardnumberWithMask('4188250000000001', 'FFFFFFFFFF')).toBeTruthy();
     });
@@ -171,6 +175,111 @@ describe("FITs", function() {
       
       expect(f.getInstitutionByCardnumber('4188250000000001')).toEqual('02');
     });
+
+    it("should match card 4174070000000104 with FIT 007", function() {      
+
+      // [PIDDX]: [005]
+      // [PFIID]: [418856FFFF]
+      // [PSTDX]: [01]
+      // [PAGDX]: [00]
+      // [PMXPN]: [84]
+      // [PCKLN]: [00]
+      // [PINPD]: [F]
+      // [PANDX]: [00]
+      // [PANLN]: [90]
+      // [PANPD]: [00]
+      // [PRCNT]: [00]
+      // [POFDX]: [00]
+      // [PDCTB]: [0000000000000000]
+      // [PEKEY]: [0000000000000000]
+      // [PINDX]: [000000]
+      // [PLNDX]: [22]
+      // [PMMSR]: [00]
+      // [PBFMT]: []
+      expect(f.addFIT("005000065136086255255001000132000015000144000000000000000000000000000000000000000000000000000000000000000000034000000")).toBeTruthy();
+
+      //  [PIDDX]: [006]
+      //  [PFIID]: [423899FFFF]
+      //  [PSTDX]: [01]
+      //  [PAGDX]: [00]
+      //  [PMXPN]: [84]
+      //  [PCKLN]: [00]
+      //  [PINPD]: [F]
+      //  [PANDX]: [00]
+      //  [PANLN]: [90]
+      //  [PANPD]: [00]
+      //  [PRCNT]: [00]
+      //  [POFDX]: [00]
+      //  [PDCTB]: [0000000000000000]
+      //  [PEKEY]: [0000000000000000]
+      //  [PINDX]: [000000]
+      //  [PLNDX]: [22]
+      //  [PMMSR]: [00]
+      //  [PBFMT]: []
+      expect(f.addFIT("006000066056153255255001000132000015000144000000000000000000000000000000000000000000000000000000000000000000034000000")).toBeTruthy();
+
+      //  [PIDDX]: [007]
+      //  [PFIID]: [417407FFFF]
+      //  [PSTDX]: [01]
+      //  [PAGDX]: [00]
+      //  [PMXPN]: [84]
+      //  [PCKLN]: [00]
+      //  [PINPD]: [F]
+      //  [PANDX]: [00]
+      //  [PANLN]: [90]
+      //  [PANPD]: [00]
+      //  [PRCNT]: [00]
+      //  [POFDX]: [00]
+      //  [PDCTB]: [0000000000000000]
+      //  [PEKEY]: [0000000000000000]
+      //  [PINDX]: [000000]
+      //  [PLNDX]: [22]
+      //  [PMMSR]: [00]
+      //  [PBFMT]: []
+      expect(f.addFIT("007000065116007255255001000132000015000144000000000000000000000000000000000000000000000000000000000000000000034000000")).toBeTruthy();
+
+      //  [PIDDX]: [008]
+      //  [PFIID]: [433825FFFF]
+      //  [PSTDX]: [00]
+      //  [PAGDX]: [00]
+      //  [PMXPN]: [84]
+      //  [PCKLN]: [00]
+      //  [PINPD]: [F]
+      //  [PANDX]: [00]
+      //  [PANLN]: [90]
+      //  [PANPD]: [00]
+      //  [PRCNT]: [00]
+      //  [POFDX]: [00]
+      //  [PDCTB]: [0000000000000000]
+      //  [PEKEY]: [0000000000000000]
+      //  [PINDX]: [000000]
+      //  [PLNDX]: [22]
+      //  [PMMSR]: [00]
+      //  [PBFMT]: []
+      expect(f.addFIT("008000067056037255255000000132000015000144000000000000000000000000000000000000000000000000000000000000000000034000000")).toBeTruthy();
+
+      //  [PIDDX]: [009]
+      //  [PFIID]: [457527FFFF]
+      //  [PSTDX]: [00]
+      //  [PAGDX]: [00]
+      //  [PMXPN]: [84]
+      //  [PCKLN]: [00]
+      //  [PINPD]: [F]
+      //  [PANDX]: [00]
+      //  [PANLN]: [90]
+      //  [PANPD]: [00]
+      //  [PRCNT]: [00]
+      //  [POFDX]: [00]
+      //  [PDCTB]: [0000000000000000]
+      //  [PEKEY]: [0000000000000000]
+      //  [PINDX]: [000000]
+      //  [PLNDX]: [22]
+      //  [PMMSR]: [00]
+      //  [PBFMT]: []
+      expect(f.addFIT("009000069117039255255000000132000015000144000000000000000000000000000000000000000000000000000000000000000000034000000")).toBeTruthy();    
+      expect(f.getInstitutionByCardnumber('4174070000000104')).toEqual('01');
+    });
+
 
     it("should order FITs by PIDDX regardless FIT addition order", function() {      
 
