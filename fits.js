@@ -186,7 +186,7 @@ function FITsService(settings, log, trace){
    */
   this.matchCardnumberWithMask = function(cardnumber, mask){
     for(var i = 0; i < mask.length; i++){
-      if( (parseInt(cardnumber[i]) & parseInt(mask[i], 16)).toString() != cardnumber[i]){
+      if( cardnumber[i] !== mask[i] && mask[i] !== 'F'){
         return false;
       }
     }

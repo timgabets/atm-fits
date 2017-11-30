@@ -106,6 +106,10 @@ describe("FITs", function() {
       expect(f.matchCardnumberWithMask('4174070000000104', '457527FFFF')).toBeFalsy();
     });
 
+    it("should match cardnumber 405060708090000104 with 4F5F6F7F8F9 mask", function() {
+      expect(f.matchCardnumberWithMask('4405060708090000104', '44F5F6F7F8F9')).toBeTruthy();
+    });
+
     it("should match cardnumber with FFFFFFFFFF mask", function() {
       expect(f.matchCardnumberWithMask('4188250000000001', 'FFFFFFFFFF')).toBeTruthy();
     });
